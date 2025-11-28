@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data.name }} - Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ data.name }}</h1>
+        <p>
+            📞 {{ data.contact.phone }} | ✉️ {{ data.contact.email }} | 
+            <a href="{{ data.contact.linkedin }}" target="_blank">LinkedIn</a>
+        </p>
+    </header>
+
+    <section>
+        <h2>Career Objective</h2>
+        <p>{{ data.career_objective }}</p>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <ul>
+            {% for edu in data.education %}
+                <li><b>{{ edu.degree }}</b> - {{ edu.institute }} ({{ edu.year }}) | {{ edu.cgpa or edu.gpa }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <p>{{ ", ".join(data.skills) }}</p>
+    </section>
+
+    <section>
+        <h2>Projects</h2>
+        {% for project in data.projects %}
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.desc }}</p>
+        {% endfor %}
+    </section>
+
+    <section>
+        <h2>Workshops & Certifications</h2>
+        <ul>
+            {% for cert in data.certifications %}
+                <li>{{ cert }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2>Languages</h2>
+        <p>{{ ", ".join(data.languages) }}</p>
+    </section>
+
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/contact">Contact Me</a>
+    </nav>
+</body>
+</html>

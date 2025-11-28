@@ -1,0 +1,6 @@
+spacy
+pymupdf
+python-docx
+streamlit
+pandas
+rapidfuzz

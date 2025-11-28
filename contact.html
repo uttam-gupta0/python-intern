@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Contact Form</h1>
+    {% if success %}
+        <p style="color:green;">✅ Your message has been sent successfully!</p>
+    {% endif %}
+    <form method="POST">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+        
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+        
+        <label>Message:</label><br>
+        <textarea name="message" required></textarea><br><br>
+        
+        <button type="submit">Send</button>
+    </form>
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>
